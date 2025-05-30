@@ -73,6 +73,23 @@
 }
 .icon{
  font-weight:900;
+ }
+ .header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding:0 100px; */
+  background-color:blanchedalmond;
  
-
-}
+  width:100%;
+ }
+ .lists{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+ }
+ ul li{
+  list-style: none;
+  padding:0 40px;
+ }

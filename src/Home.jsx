@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { PiCurrencyDollarBold } from "react-icons/pi";
-import "./App.css"
+// import Header from './Header';
+// import "./Home.css"
 
-function App() {
+function Home() {
     const [products,setproducts]=useState([])
  async  function fetchdata(){
       let response =await fetch("https://fakestoreapi.in/api/products")
@@ -18,11 +19,12 @@ function App() {
   return (
 
     <>
+       {/* <Header/> */}
     { products? (
-       <div className='maindiv'>
+       <div className='maindiv' >
         { products.map((ele)=>(
       <div className='div' >
-          <img src={ele.image} alt=""  className='images'/>
+         <a href={`/product/${ele.id}`}> <img src={ele.image} alt=""  className='images'/></a>
           <h1>{ele.title.slice(0,20)+"..."}</h1>
           <p className='para'>Price:<PiCurrencyDollarBold  className='icon'/>
 {ele.price}</p>
@@ -38,4 +40,4 @@ function App() {
   )
 }
 
-export default App
+export default Home

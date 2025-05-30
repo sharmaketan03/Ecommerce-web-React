@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+/* a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
@@ -65,4 +65,69 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+ .flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width:95%;
+  margin:5rem auto;
+ }
+.img{
+  width:500px;
+  height:400px;
+}
+.set{
+  width:40%;
+
+}
+.set1{
+width:61%
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;;
+}
+.div{
+  width:300px;
+  border: 1px solid;
+  padding:1rem;
+  box-shadow: 5px 0 10px;
+  border-radius: 10px;
+  margin:1rem 0;
+
+}
+.div img{
+  width:300px;
+}
+.lists{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ul li{
+  list-style:none;
+}
+ul li a{
+  text-decoration: none;
+  color: white;
+  padding:0 30px;
+}
+.maindiv{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width:100%;
+  margin-top:5rem;
+  /* padding:0 40px; */
+  
+
+}
+h1 a{
+  text-decoration: none;
+  color: white;
 }
