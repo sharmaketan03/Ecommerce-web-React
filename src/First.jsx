@@ -7,6 +7,7 @@ function First() {
     <>
      <Header/>
      <Outlet/>
+     <footer/>
     </>
   )
 }
