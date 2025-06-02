@@ -2,7 +2,8 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import First from './First'
 import Home from "./Home"
-import Singleproject from './singleproject'
+// import Singleproject from './singleproject'
+import Singleproject from "./Singleproject.jsx"
 import About from "./About"
 import Contact from './Contact'
 import Blog from "./Blog"
