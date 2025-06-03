@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { GrFormCalendar } from "react-icons/gr";
-
+import Header from "./Header";
 function Contact() {
   const [formdata, setformdata] = useState({
     name: "",
@@ -30,12 +30,14 @@ function Contact() {
 
   useEffect(() => {
     if (save.length > 0) {
+      // console.log(save)
       localStorage.setItem("save", JSON.stringify(save));
     }
   }, [save]);
 
   return (
     <>
+      <Header/>
       <div className="map">
         <div className="setmap">
           <iframe

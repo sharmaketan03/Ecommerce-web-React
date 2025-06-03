@@ -1,5 +1,10 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { UserContext } from "./singleproject"
+
+
 function Header() {
+   let user=useContext(UserContext)
   return (
       <>
        <div className='header'>
@@ -10,6 +15,7 @@ function Header() {
                    <li><Link to={"/about"}>About</Link></li>
                    <li><Link to={"/contact"}>Contact</Link></li>
                     <li><Link to={"/blog"}>Blog</Link></li>
+                    <li><Link to={"/cart"}>Cart<sup className="super">{user}</sup></Link></li>
                 </ul>
              </nav>
        </div>

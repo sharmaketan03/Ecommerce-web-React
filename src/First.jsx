@@ -1,15 +1,13 @@
-
-import { Outlet } from 'react-router-dom'
-import Header from './Header'
-
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
+import { useState } from "react";
 function First() {
   return (
     <>
-     <Header/>
-     <Outlet/>
-     <footer/>
+      <Outlet />
+      <footer />
     </>
-  )
+  );
 }
 
-export default First
+export default First;
