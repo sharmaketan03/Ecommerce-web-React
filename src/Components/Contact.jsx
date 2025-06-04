@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { GrFormCalendar } from "react-icons/gr";
-import Header from "../Components/Header";
+import Header from "./Header";
 function Contact() {
   const [formdata, setformdata] = useState({
     name: "",

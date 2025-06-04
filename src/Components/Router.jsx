@@ -1,13 +1,13 @@
 import  { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import First from "./Components/First.jsx";
+import First from "./First.jsx";
 import Home from "./Home";
 // import Singleproject from './singleproject'
-import Singleproject from "./Components/Singleproject";
-import About from "./Components/About";
-import Contact from  "../Components/Contact.jsx"
-import Blog from "../Components/Blog.jsx";
-import Cart from "../Components/Cart.jsx";
+import Singleproject from "./Singleproject.jsx";
+import About from "./About";
+import Contact from  "./Contact.jsx"
+import Blog from "./Blog.jsx";
+import Cart from "./Cart.jsx";
 
 let router = createBrowserRouter([
   {
