@@ -4,6 +4,7 @@ import { useState } from "react";
 function First() {
   return (
     <>
+      <Header/>
       <Outlet />
       <footer />
     </>

@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import "./index.css";
 import { use } from "react";
 import Cart from "./Cart";
-import Header from "./Header";
+import Header from "./Header";  
 
 
 const UserContext=createContext()

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { PiCurrencyDollarBold } from "react-icons/pi";
-import Header from './Header';
+// import Header from './Header';
 // import "./Home.css"
 
 function Home() {
@@ -17,7 +17,7 @@ function Home() {
   },[]);
  return (
 <>
-   <Header/>
+
       {products ? (
         <div className="maindiv">
           {products.map((ele) => (

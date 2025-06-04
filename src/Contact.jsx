@@ -37,7 +37,7 @@ function Contact() {
 
   return (
     <>
-      <Header/>
+       
       <div className="map">
         <div className="setmap">
           <iframe
