@@ -4,7 +4,7 @@ import './index.css'
 // import App from './App.jsx'
 // import First from './First.jsx'
 // import Home from "./Home"
-import Router from "./Router"
+import Router from './Components/Router'
 
 createRoot(document.getElementById('root')).render(
   

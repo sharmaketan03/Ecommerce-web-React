@@ -2,8 +2,8 @@ import { useLocation, useParams } from "react-router-dom";
 import { createContext, useContext, useEffect, useState } from "react";
 import "./index.css";
 import { use } from "react";
-import Cart from "./Cart";
-import Header from "./src/Header.jsx";  
+import Cart from "../Components/Cart.jsx";
+import Header from "../Components/Header.jsx";  
 
 
 const UserContext=createContext()
