@@ -191,6 +191,7 @@ h1 a{
     padding:0.1rem;
     border-radius: 10%;
 }
+
 .form button{
   width:68%;
   padding:0.5rem;
@@ -199,6 +200,30 @@ h1 a{
   font-weight: bold;
   border: none;
 }
+.cartmain{
+   width:100%;
+   
+}
+.cartflex{
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  padding:4rem 40px;
+}
+.cartimg{
+  width:250px;
+  
+}
+.cartimg img{
+  width:100%;
+ }
+ .ratelist{
+  /* text-align: center; */
+  width:33%;
+ }
+ .addquantity{
+   cursor: pointer;
+ }
 @media  screen and  (min-width:500px) and (max-width:820px) {
   .header{
     flex-direction: column;

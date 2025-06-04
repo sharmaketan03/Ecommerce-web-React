@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { PiCurrencyDollarBold } from "react-icons/pi";
+import { Link } from "react-router-dom";
 // import Header from './Header';
 // import "./Home.css"
 
-function Home() {
+function Home(e) {
+  // e.prevantDefault()
   const [products, setproducts] = useState([]);
   async function fetchdata() {
     let response = await fetch("https://fakestoreapi.com/products");
@@ -22,10 +24,10 @@ function Home() {
         <div className="maindiv">
           {products.map((ele) => (
             <div className="div">
-              <a href={`/product/${ele.id}`}>
+             <Link to={`/product/${ele.id}`}>
                 {" "}
                 <img src={ele.image} alt="" className="images" />
-              </a>
+             </Link>
               <h1>{ele.title.slice(0, 20) + "..."}</h1>
               <p className="para">
                 Price:

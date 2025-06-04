@@ -1,10 +1,16 @@
-import { useContext } from "react"
+
 import { Link } from "react-router-dom"
-import { UserContext } from "./Singleproject.jsx"
+import { UserContext } from "./UserContext"
+import { useContext, useEffect } from "react"
+import { useState } from "react"
 
 
 function Header() {
-   let user=useContext(UserContext)
+  
+   let {Cart}= useContext(UserContext)  //to use state variable in value store
+
+  
+    
   return (
       <>
        <div className='header'>
@@ -15,7 +21,7 @@ function Header() {
                    <li><Link to={"/about"}>About</Link></li>
                    <li><Link to={"/contact"}>Contact</Link></li>
                     <li><Link to={"/blog"}>Blog</Link></li>
-                    <li><Link to={"/cart"}>Cart<sup className="super">{user}</sup></Link></li>
+                    <li><Link to={"/cart"}>Cart<sup className="super">{Cart}</sup></Link></li>
                 </ul>
              </nav>
        </div>
@@ -25,3 +31,8 @@ function Header() {
 }
 
 export default Header
+
+
+
+
+
