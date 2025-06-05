@@ -7,8 +7,8 @@ import Header from "./Header";
 import { UserContext } from "./UserContext";
 
 
-
 function Singleproject() {
+  let value=1;
   const { id } = useParams();
   //  console.log(id)
   const [product, setProduct] = useState({});
@@ -28,16 +28,24 @@ function Singleproject() {
   async function fetchData(id) {
     let response = await fetch("https://fakestoreapi.com/products/" + id);
     let result = await response.json();
-    console.log(result);
+    // console.log(result);
     setProduct(result);
+
+ 
+
+
   }
-  function handelAddCart(event){
+function handelAddCart(event){
        if(id){
         console.log(id)
         if(!disabled){
            setDisabled(true) 
            setCart(Cart+1)
-           setAddtocartid(id)
+           setAddtocartid([...addtocartid,id])
+           console.log(addtocartid)
+         
+           
+           
         }
 
         else{
@@ -45,6 +53,10 @@ function Singleproject() {
           setDisabled(false)
         }
        }
+
+
+
+
   }
 
   // console.log(Cart)

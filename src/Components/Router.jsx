@@ -19,7 +19,7 @@ let router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
       { path: "blog", element: <Blog /> },
-      {path:"cart",element:<Cart/>}
+      {path:"cart",element:<Cart />}
     ],
   },
 ]);
