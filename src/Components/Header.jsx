@@ -21,7 +21,7 @@ function Header() {
                    <li><Link to={"/about"}>About</Link></li>
                    <li><Link to={"/contact"}>Contact</Link></li>
                     <li><Link to={"/blog"}>Blog</Link></li>
-                    <li><Link to={"/cart"}>Cart<sup className="super">{Cart}</sup></Link></li>
+                    <li><Link to={"/cart"}>Cart <span><sup  className="super" >{Cart}</sup></span></Link></li>
                 </ul>
              </nav>
        </div>
