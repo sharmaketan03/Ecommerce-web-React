@@ -7,6 +7,8 @@ function Singleproject() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [disabled, setDisabled] = useState(false);
+  const [DisabledWishlist,setDisabledWishlist]=useState(false)
+  const {AddtoWishlist ,setAddtoWishlist}=useContext(UserContext)
 
   const { addtocartid, setAddtocartid, Cart, setCart } = useContext(UserContext);
 
@@ -29,6 +31,14 @@ function Singleproject() {
       setAddtocartid([...addtocartid, id]); // fixed array push
     }
   }
+  function AddWishlist(){
+        if(id && !DisabledWishlist){
+            setDisabledWishlist(true)
+            setAddtoWishlist([...AddtoWishlist , id]);
+          
+        }
+  }
+ console.log(AddtoWishlist)
 
   return (
     <div className="flex">
@@ -42,7 +52,7 @@ function Singleproject() {
         <button className="btn1" onClick={handleAddCart} disabled={disabled}>
           Add TO Cart
         </button>
-        <button className="btn2">Wishlist</button>
+        <button className="btn2" onClick={AddWishlist} disabled={DisabledWishlist}>Wishlist</button>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import About from "./About";
 import Contact from  "./Contact.jsx"
 import Blog from "./Blog.jsx";
 import Cart from "./Cart.jsx";
+import Wishlist from "./Wishlist.jsx";
 
 let router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ let router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
       { path: "blog", element: <Blog /> },
-      {path:"cart",element:<Cart />}
+      {path:"cart",element:<Cart />},
+      {
+         path:"icons",element:<Wishlist/>
+      }
+
     ],
   },
 ]);

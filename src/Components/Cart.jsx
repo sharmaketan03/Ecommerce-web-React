@@ -1,172 +1,184 @@
-// import React, { useEffect, useState } from 'react'
-// import { UserContext } from './UserContext'
-// import { useContext } from 'react'
-// import "./index.css"
-// import { data } from 'react-router-dom'
-// let arr=[]
-// // let ids=[]
-// function Cart() {
-//   let {addtocartid}=useContext(UserContext)
-//   const [data,setData]=useState([])
-//   const [count,setCount]=useState({})
-//   console.log(addtocartid)
-
-//  async  function fetcheddata(){
-//   if (addtocartid.length==0) return;
-//   else{
-       
-//    let result=await  Promise.all(
-//      addtocartid.map( async(x)=>{
-//             const response =await fetch(`https://fakestoreapi.com/products/${x}`)
-//             const result1=await response.json()
-           
-//             return result1
-//      })
-
-        
-//     )
-   
-//     setData(result)
- 
-
- 
-
-//           console.log(arr)
-//      }
-
-//   }console.log(data)
-//  useEffect(()=>{
-// fetcheddata()
-//   },[addtocartid])
- 
-  
-  
-//   return (  
-//        <div>
-//            {data.map((item,index) => (
-//   <div className='cartflex'  >
-//     <div className='cartimg' >
-//       <img src={item.image} alt="" />
-//     </div>
-//     <div className='ratelist'>
-//       <h2>{item.title}</h2>
-//       <h3>Price: ${item.price}</h3>
-//       <h3>Rating: {item.rating?.rate}</h3>
-//       <h3>Count: {item.rating?.count}</h3>
-//       <div><button onClick={()=>decrement()}>-</button><span>{count}</span><button onClick={()=>increment(item.id)}>+</button></div>
-//     </div>
-//     <div>
-//       TOTAL PRICE:- ${item.price * count}
-//     </div>
-//   </div>
-// ))}
-
-//        </div>
-   
-//   )
-
-
-         
-//   }
-  
- 
-
-
-// export default Cart
-
-
-
-import React, { useEffect, useState, useContext } from 'react';
-import { UserContext } from './UserContext';
-import { ImCross } from "react-icons/im";
-import './index.css';
-
+import React, { useEffect, useState } from "react";
+import { UserContext } from "./UserContext";
+import { useContext } from "react";
+import "./index.css";
+import { data } from "react-router-dom";
+// let ids=[]
+let result;
 function Cart() {
-  const { addtocartid } = useContext(UserContext);
-  const [products, setProducts] = useState([]);
-  const [quantities, setQuantities] = useState({});
-  const [Emptydata,setEmptydata]=useState("")
-
+  let { addtocartid,setAddtocartid ,Cart,setCart} = useContext(UserContext);
+  const [data, setData] = useState([]);
+  const {Quantity,setQuantity}=useContext(UserContext)
+  console.log(Quantity)
+  console.log(addtocartid);
+  
+  let storequantity = [];
 
   useEffect(() => {
-    async function fetchData() {
-      if (addtocartid.length === 0){
-           setEmptydata("NO Data TO SHOW YET !!!")
-      }else if(addtocartid.length>1 ){
-              setEmptydata(" ")
-      }
+    async function fetcheddata() {
+      if (addtocartid.length === 0) return;
 
       const result = await Promise.all(
-        addtocartid.map(async (id) => {
-          const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-          return await res.json();
+        addtocartid.map(async (x) => {
+          const response = await fetch(`https://fakestoreapi.com/products/${x}`);
+          return await response.json();
         })
       );
-
-      setProducts(result);
-
- 
-      const initial = {};
-      result.forEach((item) => {
-        initial[item.id] = 1;
-        // console.log(initial[item.id])
-        // console.log(item)
-      });
-      setQuantities(initial);
+      const newquantities={}
+      result.map((item)=>{
+        newquantities[item.id]=1
+      })
+      
+      setQuantity((Quantity)=>({...Quantity,newquantities}))
+      setData(result)
+       
+       
     }
-
-    fetchData();
+    fetcheddata();
   }, [addtocartid]);
-
- 
-  function increase(id) {
-    // console.log([id],count[id])
-    setQuantities(({ ...quantities, [id]: quantities[id]>=10?10:quantities[id]+1 }));
-  }
-
-
-  function decrease(id) {
-    setQuantities(({...prev,[id]: prev[id] > 1 ? prev[id] - 1 : 1
-    }));
+function increment(id){
+   setQuantity((prev)=>({...Quantity,[id]:(prev[id]||1)+1}))
 }
-
-
-function cros(ids){
+function decrement(id){
+  setQuantity((prev)=>({...Quantity,[id]:(prev[id]||1)-1}))
+}
+let value=0
+console.log(value)
+ function RemoveCart(index){
+ const product= data.filter((items,index1)=>(index!=index1))
+  console.log(product)
+  setData(product)
   
-      products.filter((item,value)=>{
-      
-          })
-      
+  addtocartid.splice(index,1)
+  setCart(Cart-1)
+ 
+  
+ }
+if(addtocartid.length==0){
+  return(<h1 className="EmptyCard">🛒 Cart is empty</h1>)
 }
-
   return (
     <div>
-      {products.map((item,index) => (
-        <div key={item.id} className="cartflex">
-          <img src={item.image} alt="" className="cartimg" />
+      {data.map((item, index) => (
+
+    <div>
+        <div className="cartflex">
+          <div className="cartimg">
+            <img src={item.image} alt="" />
+          </div>
           <div className="ratelist">
             <h2>{item.title}</h2>
             <h3>Price: ${item.price}</h3>
-            <h3>Rating: {item.rating.rate}</h3>
-            <div>
-              <button onClick={() => decrease(item.id)}>-</button>
-              <span style={{ margin: '0 10px' }}>{quantities[item.id]}</span>
-              <button onClick={() => increase(item.id)}>+</button>
+            <h3>Rating: {item.rating?.rate}</h3>
+            <h3>Count: {item.rating?.count}</h3>
+            <div className="marginCartquantity">
+              <button onClick={() => decrement(item.id)}>-</button>
+              <span>{Quantity[item.id]||1}</span>
+              <button onClick={() => increment(item.id)}>+</button>
             </div>
+          
           </div>
-          <div>
-
-            <p><b>Total:</b> ${item.price * quantities[item.id]}</p>
-          </div>
-          <div>
-             <button onClick={()=>cros(item.id)}><ImCross /></button> 
-          </div>
+             <div>
+              <span>Remove:-</span> <button onClick={()=>RemoveCart(index)}>&times;</button>
+             </div>
         </div>
-       
+
+        <div>
+              <span>Total Price:-${Quantity[item.id]*item.price||item.price*1}</span>
+               
+            </div>
+            
+        </div>
       ))}
-       <h1 className='center'>{Emptydata}</h1>
     </div>
   );
 }
 
 export default Cart;
+
+
+
+
+
+// import React, { useEffect, useState } from "react";
+// import { UserContext } from "./UserContext";
+// import { useContext } from "react";
+// import "./index.css";
+// import { data } from "react-router-dom";
+// // let ids=[]
+// let result;
+// function Cart() {
+//   let { addtocartid } = useContext(UserContext);
+//   const [data, setData] = useState([]);
+// const { quantities, setQuantities } = useContext(UserContext);
+
+//   console.log(addtocartid);
+
+//   let storequantity = [];
+
+//   useEffect(() => {
+//     async function fetcheddata() {
+//       if (addtocartid.length === 0) return;
+
+//       const result = await Promise.all(
+//         addtocartid.map(async (x) => {
+//           const response = await fetch(`https://fakestoreapi.com/products/${x}`);
+//           return await response.json();
+//         })
+//       );
+
+//       // Initialize quantities for each product ID if not already set
+//       const initialQuantities = {};
+//       result.forEach((item) => {
+//         if (!(item.id in quantities)) {
+//           initialQuantities[item.id] = 1;
+//         }
+//       });
+
+//       setQuantities((prev) => ({ ...prev, ...initialQuantities }));
+//       setData(result);
+//     }
+
+//     fetcheddata();
+//   }, [addtocartid]);
+
+//    const increment = (id) => {
+//     setQuantities((prev) => ({
+//       ...prev,
+//       [id]: prev[id] + 1,
+//     }));
+//   };
+
+//   const decrement = (id) => {
+//     setQuantities((prev) => ({
+//       ...prev,
+//       [id]: Math.max(1, prev[id] - 1), // optional: prevent going below 1
+//     }));
+//   };
+
+
+//   return (
+//     <div>
+//       {data.map((item, index) => (
+//         <div className="cartflex">
+//           <div className="cartimg">
+//             <img src={item.image} alt="" />
+//           </div>
+//           <div className="ratelist">
+//             <h2>{item.title}</h2>
+//             <h3>Price: ${item.price}</h3>
+//             <h3>Rating: {item.rating?.rate}</h3>
+//             <h3>Count: {item.rating?.count}</h3>
+//             <div>
+//               <button onClick={() => decrement(item.id)}>-</button>
+//               <span>{quantities[item.id] || 1}</span>
+//               <button onClick={() => increment(item.id)}>+</button>
+//             </div>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default Cart;
