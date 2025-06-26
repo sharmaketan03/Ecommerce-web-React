@@ -3,12 +3,14 @@ import { UserContext } from "./UserContext";
 import { Outlet } from "react-router-dom";
 import Header from "./Header"
 
+
 function First() {
   const [Cart, setCart] = useState(0);
   const [addtocartid, setAddtocartid] = useState([]);
   const [data, setData] = useState([]);
-  const [Quantity, setQuantity] = useState({}); // ✅ add this
+  const [Quantity, setQuantity] = useState({}); 
 const [AddtoWishlist,setAddtoWishlist]=useState([])
+ const [input,setInput]=useState("")
   return (
     <UserContext.Provider
       value={{
@@ -18,10 +20,12 @@ const [AddtoWishlist,setAddtoWishlist]=useState([])
         setAddtocartid,
         data,
         setData,
-        Quantity,        // ✅ pass to context
-        setQuantity, // ✅ pass setter to context
+        Quantity,       
+        setQuantity,
         AddtoWishlist,
-        setAddtoWishlist
+        setAddtoWishlist,
+        input,
+        setInput
       }}
     >
       <Header />

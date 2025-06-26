@@ -1,95 +1,125 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+
+.reg-container-ecom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 20px;
+}
+
+/* Card */
+.reg-card-ecom {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Tabs */
+.reg-tab-ecom {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.reg-tab-active {
+  color: #1f2937;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 4px;
+}
+
+.reg-tab-inactive {
+  color: #9ca3af;
+}
+
+/* Title */
+.reg-title-ecom {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 25px;
   text-align: center;
-} */
-
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Form */
+.reg-form-ecom {
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.reg-form-ecom label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #374151;
 }
 
-.card {
-  padding: 2em;
+.reg-form-ecom input[type="text"],
+.reg-form-ecom input[type="email"],
+.reg-form-ecom input[type="password"] {
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
 }
 
-.read-the-docs {
-  color: #888;
-} */
-.images{
-    width:300px;
-    height:250px;
-    border-radius: 8px;
+.reg-form-ecom input:focus {
+  border-color: #3b82f6;
 }
-.maindiv{
-  width:100%;
+
+/* Checkbox */
+.reg-checkbox-ecom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  text-align: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #4b5563;
 }
-.div{
-  padding:1rem;
-  margin:2rem 1rem;
-  width:300px;
-  
-  text-transform: capitalize;
-  /* border: 1px solid; */
-  /* background-color: antiquewhite; */
-  box-shadow: 2px 0px 10px;
+
+.reg-checkbox-ecom input {
+  margin-right: 8px;
+}
+
+/* Button */
+.reg-submit-btn-ecom {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
-  /* background-color: antiquewhite; */
+  transition: background-color 0.3s;
 }
-.para{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.reg-submit-btn-ecom:hover {
+  background-color: #2563eb;
 }
-.icon{
- font-weight:900;
- }
- .header{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* padding:0 100px; */
-  background-color:blanchedalmond;
- 
-  width:100%;
- }
- .lists{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
- }
- ul li{
-  list-style: none;
-  padding:0 40px;
- }
+
+/* Footer */
+.login-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.color5 {
+  color: #6b7280;
+}
+
+.login-link a {
+  color: #3b82f6;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
