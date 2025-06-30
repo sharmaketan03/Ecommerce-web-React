@@ -400,6 +400,12 @@ h1 a{
   }
   
 }
+.loginBtn{
+  background-color: rgba(0, 0, 0, 0.019);
+  border: unset;
+  color: white;
+  cursor: pointer;
+}
 
 
 
