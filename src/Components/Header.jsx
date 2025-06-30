@@ -15,7 +15,7 @@ function Header() {
    let {Cart}= useContext(UserContext)
    let {data} =useContext(UserContext) 
    const navigate=useNavigate()
-   console.log(data)
+   console.log(data)    
  async function handel(){
       await  auth.signOut()
       navigate("/")
@@ -24,19 +24,19 @@ function Header() {
   return (
       <>
        <div className='header'>
-             <h1><Link to={"/App"}>Ecommerce</Link></h1>
+             <h1><Link to={"/"}>Ecommerce</Link></h1>
             
                 
              <nav>
                <input type="text"  className="inputwidth" placeholder="search Products With Ecommerce" value={input} onChange={(e)=>setInput(e.target.value)}/>
               
                 <ul className='lists'>
-                    <li><Link to={"/App"}>Home</Link></li>
-                   <li><Link to={"/App/about"}>About</Link></li>
-                   <li><Link to={"/App/contact"}>Contact</Link></li>
-                    <li><Link to={"/App/blog"}>Blog</Link></li>
+                    <li><Link to={"/"}>Home</Link></li>
+                   <li><Link to={"/about"}>About</Link></li>
+                   <li><Link to={"/contact"}>Contact</Link></li>
+                    <li><Link to={"/blog"}>Blog</Link></li>
                    
-                    <li><Link to={"/App/cart"}>Cart <span><sup  className="super" >{Cart}</sup></span></Link></li>
+                    <li><Link to={"/cart"}>Cart <span><sup  className="super" >{Cart}</sup></span></Link></li>
                     <li onClick={handel}>Logout <span></span></li>
 
                 </ul>

@@ -21,7 +21,7 @@ function Login() {
       });
       setEmail("");
       setPassword("");
-      setTimeout(() => navigate("/App"), 3000);
+      setTimeout(() => navigate("/cart"), 3000);
     } catch {
       toast.error("Login Failed. Please check credentials.", {
         position: "bottom-right",

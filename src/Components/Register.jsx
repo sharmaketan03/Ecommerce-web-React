@@ -4,6 +4,8 @@ import { auth } from "./Firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./Register.module.css"; 
+import { storage } from "./Firebase";
+
 
 function Register() {
   const [name, setName] = useState("");
@@ -39,7 +41,7 @@ function Register() {
       setConfirmPass("");
 
       setTimeout(() => {
-        navigate("/");
+        navigate("/login");
       }, 3000);
     } catch {
       toast.error("Registration Failed", {
@@ -115,7 +117,7 @@ function Register() {
         <p className={styles.loginFooter}>
           Do you have an account?{" "}
           <span className={styles.loginLink}>
-            <Link to={"/"}>Log In</Link>
+            <Link to={"/login"}>Log In</Link>
           </span>
         </p>
       </div>
